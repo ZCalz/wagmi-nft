@@ -2,7 +2,7 @@ import * as React from 'react'
 import { 
   type BaseError,
   useWaitForTransactionReceipt, 
-  useWriteContract 
+  useWriteContract,
 } from 'wagmi'
 import { abi } from '../../abi/coolCats'
 import { COOL_CATS_ADDRESS } from '@/utils/constants'
@@ -14,7 +14,7 @@ export function MintNFT() {
     isPending, 
     writeContract 
   } = useWriteContract() 
-  const { total } = useNFTInfo();
+  const { total, mintCost } = useNFTInfo();
 
   async function submit(e: React.FormEvent<HTMLFormElement>) { 
     e.preventDefault() 
@@ -24,6 +24,7 @@ export function MintNFT() {
       address: COOL_CATS_ADDRESS,
       abi,
       functionName: 'mint',
+      value: mintCost!,
       args: [BigInt(tokenId)],
     })
   } 
@@ -35,6 +36,7 @@ export function MintNFT() {
 
   return (
     <form onSubmit={submit}>
+        <h3>Mint Cost: {mintCost}</h3>
       <input className='text-black' name="tokenId" placeholder="69420" required />
       <button 
         disabled={isPending} 

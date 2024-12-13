@@ -1,6 +1,6 @@
 import { useReadContracts } from 'wagmi'
 import { abi } from '../../abi/coolCats'
-import { COOL_CATS_ADDRESS } from '../../utils/constants'
+import  {COOL_CATS_ADDRESS}  from '../../utils/constants'
 export const useNFTInfo = () => {
   const { 
     data,
@@ -21,12 +21,19 @@ export const useNFTInfo = () => {
         abi,
         functionName: 'uriPrefix',
         address: COOL_CATS_ADDRESS,
-    }]
+    },
+    {
+      abi,
+      functionName: 'mintCost',
+      address: COOL_CATS_ADDRESS,
+  },
+  ]
   })
 
   const max = data? data[0].result : null;
   const total = data? data[1].result : null;
   const uriPrefix = data? data[2].result : null;
+  const mintCost = data? data[3].result : null;
 
-  return ({ max, total, uriPrefix, error, isPending })
+  return ({ max, total, uriPrefix, mintCost, error, isPending })
 }
