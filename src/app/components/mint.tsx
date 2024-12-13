@@ -36,7 +36,7 @@ export function MintNFT() {
 
   return (
     <form onSubmit={submit}>
-        <h3>Mint Cost: {mintCost}</h3>
+        <h3>Mint Cost: 0.1 Ether</h3>
       <input className='text-black' name="tokenId" placeholder="69420" required />
       <button 
         disabled={isPending} 

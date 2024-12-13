@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useNFTLoader } from '../hooks/useNFTLoader'
 import { useNFTInfo } from '../hooks/useNftInfo'
-
+import Image from 'next/image'
 export const NftDisplay = () => {
     const { pfpLinks } = useNFTLoader()
     const { max } = useNFTInfo()
@@ -10,9 +10,9 @@ export const NftDisplay = () => {
     return (
         <>
             <div className="flex gap-2">
-                {Array.from({ length: 5 }, (_, index) => (
+                {pfpLinks && Array.from({ length: 5 }, (_, index) => (
                     <div key={index}>
-                        <img src={pfpLinks[index + view]} alt="nft pic" width="100" height="100"/>
+                        <Image src={pfpLinks[index + view] || ""} alt="nft pic" width="100" height="100"/>
                         <p>Token Id: {index + view}</p>
                     </div>
                 ))}
