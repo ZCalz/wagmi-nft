@@ -1,9 +1,8 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNFTLoader } from '../hooks/useNFTLoader'
 import { useNFTInfo } from '../hooks/useNftInfo'
-import Image
- from 'next/image'
+
 export const NftDisplay = () => {
     const { pfpLinks } = useNFTLoader()
     const { max } = useNFTInfo()

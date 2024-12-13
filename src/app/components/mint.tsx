@@ -14,7 +14,7 @@ export function MintNFT() {
     isPending, 
     writeContract 
   } = useWriteContract() 
-  const { total, mintCost } = useNFTInfo();
+  const { mintCost } = useNFTInfo();
 
   async function submit(e: React.FormEvent<HTMLFormElement>) { 
     e.preventDefault() 

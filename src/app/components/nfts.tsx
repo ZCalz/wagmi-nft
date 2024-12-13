@@ -4,8 +4,6 @@ import {abi} from '../../abi/coolCats'
 export function ReadNFTContract() {
   const { 
     data,
-    error,
-    isPending
   } = useReadContracts({
     contracts: [{
         abi,
