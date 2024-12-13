@@ -1,0 +1,3 @@
+// hook that (number) -> {
+    returns nth number of the fib seq.
+}
